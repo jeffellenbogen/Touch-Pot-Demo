@@ -11,6 +11,12 @@
  * basis and no warranty as to its suitability for any particular purpose is either made
  * or implied.  danjuliodesigns, LLC. will not accept any claim for damages howsoever
  * arising as a result of use or failure of this software.
+ * 
+ * Connections:
+ * Arduino pin A4 is the I2C SDA pin on the touchpot.
+ * Arduino pin A5 is the I2C SCL pin on the touchpot.
+ * GND on the touchpot goes to GND on the arduino.
+ * VIN on the touchpot goes to +5v on the Arduino
  */
 #include "Wire.h"
 
@@ -20,7 +26,7 @@ uint8_t prevValue;
 uint8_t curValue;
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
   Wire.begin();
   pinMode(13, OUTPUT);
 
@@ -78,4 +84,3 @@ uint8_t ReadTpReg(uint8_t addr) {
     return 0;
   }
 }
-
